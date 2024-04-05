@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "../src/assets/css/App.css";
+import AboutUs from "./components/AboutUs";
+import ContactInfo from "./components/ContactInfo";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Quotes from "./components/Quotes";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function ChurchWebsite() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Navbar />
+      <Hero />
+      <AboutUs />
+      <Quotes />
+
+      <section className="services-area py-24" id="services">
+        <h3 className="section-title">
+          Our <span>Offers</span>
+        </h3>
+        <ul className="services-content flex justify-center">
+          <li className="w-1/3 px-10">
+            <img alt="" src="images/1.jpg" />
+            <h4>Prayer</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est,
+              reprehenderit.
+            </p>
+          </li>
+          <li className="w-1/3 px-10">
+            <img alt="" src="images/3.jpg" />
+            <h4>Offerings</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est,
+              reprehenderit.
+            </p>
+          </li>
+          <li className="w-1/3 px-10">
+            <img alt="" src="images/4.jpg" />
+            <h4>Blessings</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est,
+              reprehenderit.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <ContactInfo />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default ChurchWebsite;
