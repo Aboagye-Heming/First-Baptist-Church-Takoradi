@@ -8,12 +8,12 @@ const Hero = () => {
         <h1>
           God is <span className="text-red-600">Almighty</span>
         </h1>
-        <a
+        {/* <a
           href="#"
           className="banner-btn bg-red-600 py-2 px-5 mt-5 rounded-full"
         >
           More Info
-        </a>
+        </a> */}
       </section>
     </>
   );

@@ -1,14 +1,14 @@
-import React from 'react'
+import logo from "../assets/images/ch-logo.svg";
 
 const Navbar = () => {
   return (
     <>
-     <header className="flex justify-between items-center px-10 py-3 absolute top-0 left-0 w-full">
-        {/* <h2>
+      <header>
+        <h2>
           <a href="#">
-            <img alt="" src="images/logo.png" />
+            <img src={logo}  alt="church-logo" />
           </a>
-        </h2> */}
+        </h2>
         <ul className="flex nav">
           <li>
             <a href="#">Home</a>
@@ -28,7 +28,7 @@ const Navbar = () => {
         </ul>
       </header>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
