@@ -1,26 +1,24 @@
-import "../src/assets/css/index.css";
-import AboutUs from "./components/AboutUs";
-import ContactInfo from "./components/ContactInfo";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Ministries from "./components/Ministries";
-import Navbar from "./components/Navbar";
-import Verses from "./components/Verses";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
+import AboutUs from "./pages/AboutUs";
+import ActivitiesPage from "./pages/AcitivitiesPage";
+import MediaCenter from "./pages/MediaCenter";
 
-function ChurchWebsite() {
+function App() {
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <AboutUs />
-      <Verses />
-      <Ministries />
-
-     
-      <ContactInfo />
-      <Footer />
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/activities" element={<ActivitiesPage />} />
+          <Route path="/media-center" element={<MediaCenter />} />
+          <Route path="/contact-us" element={<ContactPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
-export default ChurchWebsite;
+export default App;
