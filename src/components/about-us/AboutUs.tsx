@@ -46,24 +46,31 @@ const AboutUs = () => {
           <div className="wrapper">
             <div className="about-main-content">
               <div>
-                A place where the hurting, discouraged, confused, bound and
-                frustrated can find love, acceptance, guidance, encouragement,
-                forgiveness and hope through our Lord Jesus.
+                Welcome to our loving community, a place where hearts are
+                healed, spirits lifted, and souls embraced in the warmth of
+                God's love.
                 <br />
                 <br />
-                We believe that God is sovereign in the election and salvation
-                of all who believe in His Son. He regenerates and saves sinners
-                and sanctifies believers.
+                In our sanctuary, amidst the solace of fellowship, we find not
+                only solace but also guidance, encouragement, and the promise of
+                redemption through our Lord Jesus Christ.
                 <br />
-                <br /> We believe that a local church is a congregation of
-                Baptised believers, associated by covenant or agreement in faith
-                and fellowship of the Gospel of Jesus Christ working to carry on
-                God’s work and glorify His name. <br /> <br />
-                Reverend Marklin Agbakey is the Senior Pastor of First Baptist
-                Church. Reverend Marklin Agbakey exercises a remarkable ministry
-                and all who know him will agree that he is truly a man of God.
-                His love for the Word of God and his deep commitment to prayer
-                and revival.
+                <br />
+                Here, we believe in the divine grace that flows freely,
+                enveloping every seeking soul in the boundless embrace of God's
+                mercy and compassion.
+                <br />
+                <br />
+                Our congregation, united in faith and bound by the gospel, is
+                dedicated to glorifying His name and spreading the light of His
+                love throughout our community.
+                <br />
+                <br />
+                At the helm of our spiritual journey stands Reverend Marklin
+                Agbakey, our esteemed Senior Pastor, a beacon of faith and a
+                vessel of God's wisdom and grace. His dedication to the Word and
+                fervent prayers illuminate our path, guiding us towards
+                spiritual growth and revival.
               </div>
             </div>
           </div>

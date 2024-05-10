@@ -1,11 +1,12 @@
 .navbar {
   background-color: #fff;
-  height: 80px;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   width: 100%;
+
 }
 
 .navbar-container {
@@ -107,6 +108,7 @@
     position: absolute;
     top: 60px;
     left: -100%;
+
     opacity: 1;
     transition: all 0.5s ease;
     border-radius: 0 0 20px 0;

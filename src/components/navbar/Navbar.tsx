@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation  } from "react-router-dom";
-import logo from "../../assets/images/ch-logo.svg";
+import { Link, useLocation } from "react-router-dom";
 import "./nav-bar.css";
+
+interface NavItemProps {
+  to: string;
+  text: string;
+  isActive: boolean;
+}
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navbarContainerRef = useRef(null);
+  const navbarContainerRef = useRef<HTMLDivElement>(null); // Provide type for useRef
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,11 +21,11 @@ function Navbar() {
     setIsMenuOpen(false);
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: { target: unknown }) => {
     if (
       isMenuOpen &&
       navbarContainerRef.current &&
-      !navbarContainerRef.current.contains(event.target)
+      !navbarContainerRef.current.contains(event.target as Node) // Type assertion
     ) {
       closeMenu();
     }
@@ -79,16 +85,12 @@ function Navbar() {
   );
 }
 
-
-function NavItem({ to, text }) {
-  const location = useLocation();
+function NavItem({ to, text, isActive }: NavItemProps) {
+  // Add props interface
 
   return (
     <li className="nav-item">
-      <Link
-        to={to}
-        className={`nav-links ${location.pathname === to ? "active" : ""}`}
-      >
+      <Link to={to} className={`nav-links ${isActive ? "active" : ""}`}>
         {text}
       </Link>
     </li>
