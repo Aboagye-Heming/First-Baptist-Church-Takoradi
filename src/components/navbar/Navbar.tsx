@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import logo from "../../assets/images/ch-logo.svg";
 import "./nav-bar.css";
 function Navbar() {
@@ -79,10 +79,16 @@ function Navbar() {
   );
 }
 
-function NavItem({ to, text, isActive }) {
+
+function NavItem({ to, text }) {
+  const location = useLocation();
+
   return (
     <li className="nav-item">
-      <Link to={to} className={`nav-links ${isActive ? "active" : ""}`}>
+      <Link
+        to={to}
+        className={`nav-links ${location.pathname === to ? "active" : ""}`}
+      >
         {text}
       </Link>
     </li>
