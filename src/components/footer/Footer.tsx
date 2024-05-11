@@ -3,6 +3,9 @@ import facebookLogo from "../../assets/images/facebookLogo.png";
 import instagramLogo from "../../assets/images/instagramLogo.png";
 import twitterLogo from "../../assets/images/twitterLogo.png";
 import youtubeLogo from "../../assets/images/youtubeLogo.png";
+import locationLogo from "../../assets/images/maps-pin-line-icon.svg";
+import callLogo from "../../assets/images/phone-line-icon.svg";
+import messageLogo from "../../assets/images/envelope-line-icon.svg";
 import "./footer.css";
 
 const Footer = () => {
@@ -49,15 +52,15 @@ const Footer = () => {
           <div className="footer-links">
             <h4>Contact Info</h4>
             <div>
-              {/* <img src={locationLogo} alt="" /> */}
+              <img src={locationLogo} alt="" />
               <p>Alex Cobbinah Street. Opposite New Market</p>
             </div>
             <div>
-              {/* <img src={callLogo} alt="" /> */}
+              <img src={callLogo} alt="" />
               <p>(+233) 000-000-000</p>
             </div>
             <div>
-              {/* <img src={messageLogo} alt="" /> */}
+              <img src={messageLogo} alt="" />
               <p>info@baptist.com</p>
             </div>
           </div>
