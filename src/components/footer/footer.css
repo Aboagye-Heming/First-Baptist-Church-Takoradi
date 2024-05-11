@@ -1,22 +1,141 @@
+.footer {
+  background-color: #212121;
+  opacity: 0.9;
+  padding: 2rem 2rem;
+}
 
-.footer-container {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+.footer-main {
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.footer-social-media-info {
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer-social-media-info p {
+  margin-bottom: 1rem;
+}
+
+.footer-social-media-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.footer-links {
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-links h4 {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.footer-links div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-links div img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.footer-links div p {
+  margin-bottom: 0;
+}
+
+.copyright {
+  background-color: #212121;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer-main,
+.footer-links,
+.footer-social-media-info,
+.footer-social-media-logos,
+.footer-links h4,
+.footer-links div,
+.footer-links div p,
+.footer-social-media-info p {
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.footer-main,
+.footer-links h4,
+.footer-links div p,
+.footer-social-media-info p {
+  color: #ffffff;
+}
+
+.footer-social-media-logos img {
+  filter: brightness(0.7) grayscale(1);
+}
+
+.footer-social-media-logos img:hover {
+  filter: brightness(1) grayscale(0);
+}
+
+.footer-links div img:hover {
+  filter: brightness(1);
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 960px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .footer-text {
-    margin: 0;
+
+  .footer-links {
+    margin-top: 2rem;
+  }
+
+  .footer-links,
+  .footer-social-media-info {
+    max-width: none;
+  }
+
+  .footer-links h4 {
     font-size: 16px;
+    margin-bottom: 0.5rem;
   }
-  
-  .footer-link {
-    color: #fff;
-    text-decoration: none;
+
+  .footer-links div {
+    margin-bottom: 0.5rem;
   }
-  
-  .footer-link:hover {
-    text-decoration: underline;
+
+  .footer-social-media-info p {
+    margin-bottom: 0.5rem;
   }
-  
+
+  .footer-social-media-logos {
+    margin-top: 1rem;
+  }
+}
