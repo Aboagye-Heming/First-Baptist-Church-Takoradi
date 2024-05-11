@@ -25,6 +25,10 @@ a {
   cursor: pointer;
   color: black;
 }
+.content {
+  margin-top: calc(4rem + 20px); /* Adjust 20px to match any additional margin or padding */
+}
+
 header {
   position: fixed;
   left: 0;

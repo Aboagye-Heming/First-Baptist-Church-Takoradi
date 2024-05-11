@@ -51,15 +51,15 @@ const Footer = () => {
 
           <div className="footer-links">
             <h4>Contact Info</h4>
-            <div>
+            <div className="contact-info">
               <img src={locationLogo} alt="" />
               <p>Alex Cobbinah Street. Opposite New Market</p>
             </div>
-            <div>
+            <div className="contact-info">
               <img src={callLogo} alt="" />
               <p>(+233) 000-000-000</p>
             </div>
-            <div>
+            <div className="contact-info">
               <img src={messageLogo} alt="" />
               <p>info@baptist.com</p>
             </div>

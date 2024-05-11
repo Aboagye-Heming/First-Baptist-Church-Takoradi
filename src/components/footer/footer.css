@@ -3,9 +3,7 @@
   opacity: 0.9;
   padding: 2rem 2rem;
 }
-#logooo{
-  background-color: blue;
-}
+
 .footer-main {
   font-size: 16px;
   line-height: 1.6;
@@ -51,6 +49,13 @@
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  row-gap: 1rem;
+}
+.contact-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 1rem;
 }
 
 .footer-links div img {

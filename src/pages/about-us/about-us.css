@@ -1,0 +1,34 @@
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-us-content {
+    max-width: 800px;
+  }
+  
+  .about-us-image {
+    margin-top: 2rem;
+  }
+  
+  .about-us-section {
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-us-section:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .accordion-content.open {
+    max-height: 500px; /* Adjust as needed */
+  }
+  
