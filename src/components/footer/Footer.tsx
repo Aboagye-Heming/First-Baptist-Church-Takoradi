@@ -1,77 +1,69 @@
-import { Link } from "react-router-dom";
-import facebookLogo from "../../assets/images/facebookLogo.png";
-import instagramLogo from "../../assets/images/instagramLogo.png";
-import twitterLogo from "../../assets/images/twitterLogo.png";
-import youtubeLogo from "../../assets/images/youtubeLogo.png";
-import locationLogo from "../../assets/images/maps-pin-line-icon.svg";
-import callLogo from "../../assets/images/phone-line-icon.svg";
-import messageLogo from "../../assets/images/envelope-line-icon.svg";
+import facebookLogo from "../../assets/icons/facebook.svg";
+import instagramLogo from "../../assets/icons/insta.svg";
+import tiktokLogo from "../../assets/icons/tiktok.svg";
 import "./footer.css";
 
 const Footer = () => {
   return (
-    <>
-      <footer className="footer">
-        <div className="footer-main container">
-          <div className="footer-social-media-info ">
-            <p>Follow Our social media handle</p>
-            <div className="footer-social-media-logos">
-              <a href="https://www.facebook.com">
-                <img src={facebookLogo} alt="facebook logo" />
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          {/* Contact Us */}
+          <div className="contact">
+            <h3>Contact Us</h3>
+            <p>
+              P. O. Box MC 356 Takoradi, Ghana-West Africa
+              <br />
+              Phone: +233 27 774 2296
+              <br />
+              Email:{" "}
+              <a href="mailto:info@tis-takoradi.com" title="Send message">
+                firstbaptistchurchtakoradi@gmail.com
               </a>
-              <a href="https://twitter.com">
-                <img src={twitterLogo} alt="twitter logo" />
-              </a>
-              <a href="https://www.instagram.com">
-                <img src={instagramLogo} alt="Instagram logo" />
-              </a>
-              <a href="https://www.youtube.com">
-                <img src={youtubeLogo} alt="youtube logo" />
-              </a>
-            </div>
+            </p>
           </div>
-          <div className="footer-links">
-            <h4>Useful Links</h4>
-            <Link to="/">
-              <p>Homepage</p>
-            </Link>
-
-            <Link to="/about-us">
-              <p>About</p>
-            </Link>
-
-            <Link to="/gallery">
-              <p>Gallery</p>
-            </Link>
-
-            <Link to="/contact">
-              <p>Contact</p>
-            </Link>
+          {/* Social Icons */}
+          <div className="social">
+            <h3>Connect with Us</h3>
+            <ul className="social-icons">
+              <li>
+                <a
+                  href="https://www.tiktok.com/@firstbaptistchurchtadi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={tiktokLogo} alt="TikTok" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/firstbaptistchurchtakoradi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagramLogo} alt="Instagram" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://l.instagram.com/?u=https%3A%2F%2Fwww.facebook.com%2FfirstbaptistchurchTadi%3Fmibextid%3DLQQJ4d&e=AT38M9qTf2eCf1sOCJiXchQoZqD3Vl7SXOrUYYDJ-eScrJ7Z0d6ouBDJgh3eexzxJEmQDmPJLNF2xuuAu8PXkQT-bDdkjtx45oM0Ag"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebookLogo} alt="Facebook" />
+                </a>
+              </li>
+            </ul>
           </div>
-
-          <div className="footer-links">
-            <h4>Contact Info</h4>
-            <div className="contact-info">
-              <img src={locationLogo} alt="" />
-              <p>Alex Cobbinah Street. Opposite New Market</p>
-            </div>
-            <div className="contact-info">
-              <img src={callLogo} alt="" />
-              <p>(+233) 000-000-000</p>
-            </div>
-            <div className="contact-info">
-              <img src={messageLogo} alt="" />
-              <p>info@baptist.com</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <div className="copyright">
-        <div className="copyright-content container">
-          © 2024 First Baptist Church. All rights reserved
         </div>
       </div>
-    </>
+      {/* Legal */}
+      <div className="legal">
+        <div className="container">
+          <p>&copy; 2024 First Baptist Church Takoradi. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
