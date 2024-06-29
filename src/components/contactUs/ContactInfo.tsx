@@ -1,4 +1,3 @@
-import React from "react";
 import "./contact-page.css";
 import facebookLogo from "../../assets/icons/facebook.svg";
 import instagramLogo from "../../assets/icons/insta.svg";
@@ -88,7 +87,6 @@ const ContactInfo = () => {
               <textarea
                 id="message"
                 name="message"
-                rows="5"
                 required
               ></textarea>
             </div>
