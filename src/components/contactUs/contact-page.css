@@ -1,0 +1,145 @@
+/* contact-page.css */
+
+.contact-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.contact-page-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.contact-info{
+  margin-bottom: 40px;
+}
+
+
+.contact-form-container,
+.contact-details {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.contact-details h3,
+.contact-form-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-details p,
+.contact-details a {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: red;
+  outline: none;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: rgb(182, 28, 28);
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  max-width: 200px;
+}
+.contact-content li {
+  padding: 0px;
+  flex-basis: 33%;
+  text-align: center;
+}
+
+.social-icons li {
+  display: inline-block;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  .contact-page-container h1 {
+    font-size: 2rem;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form-container,
+  .contact-details {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+  }
+}
