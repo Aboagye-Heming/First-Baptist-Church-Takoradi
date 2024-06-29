@@ -63,16 +63,16 @@ function Navbar() {
               text="About Us"
               isActive={location.pathname === "/about-us"}
             />
-            <NavItem
+            {/* <NavItem
               to="/activities"
               text="Activities"
               isActive={location.pathname === "/activities"}
-            />
-            <NavItem
+            /> */}
+            {/* <NavItem
               to="/media-center"
               text="Media Center"
               isActive={location.pathname === "/media-center"}
-            />
+            /> */}
             <NavItem
               to="/contact-us"
               text="Contact"
