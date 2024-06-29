@@ -1,0 +1,62 @@
+/* ministry-details.css */
+
+.ministry-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .ministry-header {
+    text-align: center;
+  }
+  
+  .ministry-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .ministry-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .ministry-body {
+    margin-top: 20px;
+  }
+  
+  .ministry-body p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .ministry-body h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .ministry-body a {
+    color: #007bff;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #72c472;
+  }
+  

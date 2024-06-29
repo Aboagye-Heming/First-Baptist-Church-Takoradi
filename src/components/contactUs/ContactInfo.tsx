@@ -23,7 +23,7 @@ const ContactInfo = () => {
             <p>
               P. O. Box MC 356 Takoradi, Ghana-West Africa
               <br />
-              Phone: +233 27 774 2296
+              Phone: +233 20 939 1740
               <br />
               Email:{" "}
               <a

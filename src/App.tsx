@@ -4,7 +4,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutUs from "./pages/about-us/AboutUs";
 import ActivitiesPage from "./pages/AcitivitiesPage";
 import MediaCenter from "./pages/MediaCenter";
-import MinistryDetails from "./pages/MinistryDetails";
+import MinistryDetails from "./pages/ministry-details/MinistryDetails";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import "../src/assets/css/index.css";
