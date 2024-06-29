@@ -34,7 +34,7 @@ const ContactInfo = () => {
               </a>
             </p>
           </div>
-          <div className="contact-info">
+          <div >
             <h3>Connect with Us</h3>
             <ul className="social-icons">
               <li>
