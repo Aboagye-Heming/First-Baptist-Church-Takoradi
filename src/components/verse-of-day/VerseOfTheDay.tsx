@@ -1,4 +1,3 @@
-// src/components/verse-of-day/VerseOfTheDay.jsx
 import { useState, useEffect } from "react";
 import "./Verse-of-day.css";
 
@@ -36,6 +35,16 @@ const VerseOfTheDay = ({ className }) => {
   return (
     <section className={`msg-area ${className}`}>
       <div className="msg-content">
+        <div className="additional-content">
+          {/* Place your additional content here */}
+          <h2>Year Theme</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At adipisci
+            sed laudantium, temporibus dolorum impedit voluptatem nesciunt error
+            alias, inventore nobis mollitia expedita doloremque vero
+            repellendus, nisi amet commodi reprehenderit.
+          </p>
+        </div>
         <h2>Verse of the Day</h2>
         <p className="verse-text">{verses[currentVerseIndex].text}</p>
         <p className="verse-reference">{verses[currentVerseIndex].verse}</p>

@@ -1,21 +1,40 @@
-// src/components/upcoming-events/UpcomingEvents.jsx
 import "./upcoming-events.css";
 
 const events = [
   {
     name: "Sunday Service",
-    date: "2024-07-10",
-    description: "Join us for our weekly Sunday service with inspiring sermons and worship music.",
-  },
-  {
-    name: "Bible Study",
-    date: "2024-07-12",
-    description: "Dive deep into the scriptures with our weekly Bible study group.",
+    day: "Sunday",
+    description: "Join us for our Sunday service (Joint Service) with inspiring sermons and worship music.",
   },
   {
     name: "Youth Fellowship",
-    date: "2024-07-14",
+    day: "Monday",
     description: "A time for the youth to gather, share, and grow in faith.",
+  },
+  {
+    name: "Men's Meeting",
+    day: "Tuesday",
+    description: "Connect and grow with other men in our community.",
+  },
+  {
+    name: "Bible Study",
+    day: "Wednesday",
+    description: "Join us for Bible study sessions where we delve deep into the scriptures.",
+  },
+  {
+    name: "Prayer Meeting",
+    day: "Thursday",
+    description: "Come together in prayer and fellowship.",
+  },
+  {
+    name: "Prayers",
+    day: "Friday",
+    description: "A dedicated time for prayer and reflection.",
+  },
+  {
+    name: "Singing Rehearsals",
+    day: "Saturday",
+    description: "Join our choir for singing rehearsals and prepare for Sunday worship.",
   },
 ];
 
@@ -23,15 +42,15 @@ const UpcomingEvents = ({ className }) => {
   return (
     <div className={`upcoming-events ${className}`}>
       <h2>Upcoming Programs</h2>
-      <ul>
+      <div className="events-list">
         {events.map((event, index) => (
-          <li key={index} className="event">
+          <div key={index} className="event">
             <h3>{event.name}</h3>
-            <p><strong>Date:</strong> {event.date}</p>
+            <p><strong>Day:</strong> {event.day}</p>
             <p>{event.description}</p>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
