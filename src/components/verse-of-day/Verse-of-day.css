@@ -1,0 +1,30 @@
+/* src/components/verse-of-day/Verse-of-day.css */
+.msg-area {
+    background-color: #211560;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 100%;
+  }
+  
+  .msg-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: red;
+  }
+  
+  .msg-content p {
+    font-size: 18px;
+  }
+  
+  .msg-content p.verse-text {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .msg-content p.verse-reference {
+    font-weight: bold;
+  }
+  

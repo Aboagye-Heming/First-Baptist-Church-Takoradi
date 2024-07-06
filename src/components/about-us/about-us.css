@@ -24,6 +24,7 @@
   font-size: 34px;
   margin-bottom: 20px;
 }
+
 .about-right h2 span {
   font-size: 34px;
   margin-bottom: 20px;
@@ -36,32 +37,6 @@
   width: 50rem;
 }
 
-.msg-area {
-  background-color: #211560;
-  color: #fff;
-  padding: 40px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.msg-content h2 {
-  font-size: 34px;
-  margin-bottom: 20px;
-  color: red;
-}
-
-.msg-content p {
-  font-size: 18px;
-}
-
-.msg-content p.verse-text {
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-.msg-content p.verse-reference {
-  font-weight: bold;
-}
 @media screen and (max-width: 960px) {
   .about-content {
     flex-direction: column;

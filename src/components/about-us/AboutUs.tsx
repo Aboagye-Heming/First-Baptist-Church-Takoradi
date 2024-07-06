@@ -1,41 +1,10 @@
-import { useState, useEffect } from "react";
 import logo from "../../assets/images/Rev.jpg";
 import "./about-us.css";
 
-const verses = [
-  {
-    id: 1,
-    text: "For the word of God is alive and active.",
-    verse: "Hebrews 4:12",
-  },
-  {
-    id: 2,
-    text: "Heaven and earth will pass away but my words will never pass away. ",
-    verse: " Matthew 24:35",
-  },
-  {
-    id: 3,
-    text: "The Lord is the everlasting God, the Creator of the ends of the earth. He will not grow tired or weary, and his understanding no one can fathom.",
-    verse: "  Isaiah 40:28",
-  },
-];
-
 const AboutUs = () => {
-  const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVerseIndex((prevIndex) =>
-        prevIndex === verses.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 86400000); // Change verse every 5 seconds (5000 milliseconds)
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div>
-      <div className="about-content ">
+      <div className="about-content">
         <div className="about-left">
           <img src={logo} alt="church-logo" />
         </div>
@@ -76,13 +45,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <section className="msg-area">
-        <div className="msg-content">
-          <h2>Verse of the day</h2>
-          <p>{verses[currentVerseIndex].text}</p>
-          <p>{verses[currentVerseIndex].verse}</p>
-        </div>
-      </section>
     </div>
   );
 };
