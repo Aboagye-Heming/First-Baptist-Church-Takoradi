@@ -1,3 +1,4 @@
+import React from "react";
 import "./upcoming-events.css";
 
 const events = [
@@ -38,7 +39,11 @@ const events = [
   },
 ];
 
-const UpcomingEvents = ({ className }) => {
+interface UpcomingEventsProps {
+  className?: string;
+}
+
+const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ className }) => {
   return (
     <div className={`upcoming-events ${className}`}>
       <h2>Upcoming Programs</h2>

@@ -19,7 +19,11 @@ const verses = [
   },
 ];
 
-const VerseOfTheDay = ({ className }) => {
+interface VerseOfTheDayProps {
+  className?: string;
+}
+
+const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
   const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
 
   useEffect(() => {
