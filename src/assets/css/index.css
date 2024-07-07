@@ -76,7 +76,7 @@ header img {
 }
 /*banner area*/
 
-section {
+/* section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +160,7 @@ section p {
   .banner-area a.banner-btn {
     padding: 8px 20px;
   }
-}
+} */
 /*about area*/
 .about{
   display: flex;
