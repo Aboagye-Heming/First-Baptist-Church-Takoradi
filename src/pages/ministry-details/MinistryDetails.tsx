@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import choir from "../../assets/images/choir.png";
 import global from "../../assets/images/global.png";
 import media from "../../assets/images/media.png";
-import children from "../../assets/images/ch3.png";
+import children from "../../assets/images/image1.jpg";
 import "./ministry-details.css";
 
 // Example static data for ministries
