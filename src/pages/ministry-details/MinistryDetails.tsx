@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
-import image1 from "../../assets/images/ch-building.jpg";
-
+import choir from "../../assets/images/choir.png";
+import global from "../../assets/images/global.png";
+import media from "../../assets/images/media.png";
+import children from "../../assets/images/ch3.png";
 import "./ministry-details.css";
 
 // Example static data for ministries
@@ -19,7 +21,7 @@ const ministries: Record<string, {
     leader: "Jane Doe",
     contact: "+233 27 774 2296",
     email: "gkv@firstbaptistchurch.com",
-    image: image1,
+    image: global,
   },
   "2": {
     name: "Vibrant Choir",
@@ -28,7 +30,7 @@ const ministries: Record<string, {
     leader: "John Smith",
     contact: "+233 27 774 2297",
     email: "choir@firstbaptistchurch.com",
-    image: image1,
+    image: choir,
   },
   "3": {
     name: "Media",
@@ -37,7 +39,7 @@ const ministries: Record<string, {
     leader: "Alice Brown",
     contact: "+233 27 774 2298",
     email: "media@firstbaptistchurch.com",
-    image: image1,
+    image: media,
   },
   "4": {
     name: "Children",
@@ -46,7 +48,7 @@ const ministries: Record<string, {
     leader: "Michael Johnson",
     contact: "+233 27 774 2299",
     email: "children@firstbaptistchurch.com",
-    image: image1,
+    image: children,
   },
 };
 

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import image1 from "../../assets/images/ch-building.jpg";
+import choir from "../../assets/images/choir.png";
+import global from "../../assets/images/global.png";
+import media from "../../assets/images/media.png";
+import children from "../../assets/images/ch3.png";
 
 import "./ministries.css";
 
@@ -9,28 +12,28 @@ function Ministries() {
     {
       id: 1,
       title: "Global Kingdom Voices",
-      image: image1,
+      image: global,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
     },
     {
       id: 2,
       title: "Vibrant Choir",
-      image: image1,
+      image: choir,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
     },
     {
       id: 3,
       title: "Media",
-      image: image1,
+      image: media,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
     },
     {
       id: 4,
       title: "Children",
-      image: image1,
+      image: children,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
     },
