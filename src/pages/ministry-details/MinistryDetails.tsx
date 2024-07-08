@@ -3,17 +3,20 @@ import choir from "../../assets/images/choir.png";
 import global from "../../assets/images/global.png";
 import media from "../../assets/images/media.png";
 import children from "../../assets/images/image1.jpg";
+import usher from "../../assets/images/usher.png";
 import "./ministry-details.css";
 
-// Example static data for ministries
-const ministries: Record<string, { 
-  name: string;
-  description: string;
-  leader: string;
-  contact: string;
-  email: string;
-  image: string;
-}> = {
+const ministries: Record<
+  string,
+  {
+    name: string;
+    description: string;
+    leader: string;
+    contact: string;
+    email: string;
+    image: string;
+  }
+> = {
   "1": {
     name: "Global Kingdom Voices",
     description:
@@ -49,6 +52,15 @@ const ministries: Record<string, {
     contact: "+233 27 774 2299",
     email: "children@firstbaptistchurch.com",
     image: children,
+  },
+  "5": {
+    name: "Children",
+    description:
+      "Our Children's Ministry provides a safe and fun environment for children to learn about God's love.",
+    leader: "Michael Johnson",
+    contact: "+233 27 774 2299",
+    email: "children@firstbaptistchurch.com",
+    image: usher,
   },
 };
 

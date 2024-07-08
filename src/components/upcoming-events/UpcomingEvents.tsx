@@ -23,17 +23,17 @@ const events = [
     description: "Join us for Bible study sessions where we delve deep into the scriptures.",
   },
   {
-    name: "Prayer Meeting",
+    name: "Singing Rehearsal",
     day: "Thursday",
     description: "Come together in prayer and fellowship.",
   },
   {
-    name: "Prayers",
+    name: "Prayer Hour",
     day: "Friday",
     description: "A dedicated time for prayer and reflection.",
   },
   {
-    name: "Singing Rehearsals",
+    name: "Singing Rehearsal",
     day: "Saturday",
     description: "Join our choir for singing rehearsals and prepare for Sunday worship.",
   },

@@ -7,6 +7,7 @@
   position: fixed;
   width: 100%;
   top: 0; /* Position navbar at the top */
+  z-index: 100;
 }
 
 .navbar-container {

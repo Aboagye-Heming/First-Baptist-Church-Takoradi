@@ -3,6 +3,7 @@ import choir from "../../assets/images/choir.png";
 import global from "../../assets/images/global.png";
 import media from "../../assets/images/media.png";
 import children from "../../assets/images/image1.jpg";
+import usher from "../../assets/images/usher.png";
 import "./ministries.css";
 
 function Ministries() {
@@ -25,6 +26,13 @@ function Ministries() {
       id: 3,
       title: "Media",
       image: media,
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
+    },
+    {
+      id: 5,
+      title: "Ushers",
+      image: usher,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, reprehenderit.",
     },
