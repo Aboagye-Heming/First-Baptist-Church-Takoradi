@@ -1,13 +1,18 @@
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 0px;
+  padding: 0px 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .footer .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .footer-content {
@@ -69,7 +74,7 @@
   background-color: #222;
   color: #aaa;
   text-align: center;
-  max-width: 100%;
+  padding: 10px 0;
 }
 
 .legal p {
@@ -77,30 +82,21 @@
   font-size: 14px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
+  .footer .container {
     padding: 10px 14px;
-}
+  }
+  
   .footer-content {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
-
+  
   .footer-content > div {
     margin: 10px 0;
   }
-
+  
   .social-icons {
-    justify-content: center;
     gap: 20px;
-
   }
-
-  .contact p,
-  .social p {
-    text-align: center;
-  }
- 
 }

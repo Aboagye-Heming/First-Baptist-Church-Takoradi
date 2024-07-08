@@ -1,9 +1,9 @@
 .about-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 10rem;
-  padding: 1rem 10rem;
+  align-items: start;
+  gap: 3rem;
+  padding: 1rem 14rem;
   margin-bottom: 2rem;
 }
 
@@ -72,6 +72,7 @@
     font-size: 18px;
     width: 100%;
     margin: 10px 0;
+    padding: 20px;
     text-align: center;
   }
 }

@@ -8,7 +8,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Contact Us */}
           <div className="contact">
             <h3>Contact Us</h3>
             <p>
@@ -17,12 +16,11 @@ const Footer = () => {
               Phone: +233 20 939 1740
               <br />
               Email:{" "}
-              <a href="mailto:info@tis-takoradi.com" title="Send message">
+              <a href="mailto:firstbaptistchurchtakoradi@gmail.com" title="Send message">
                 firstbaptistchurchtakoradi@gmail.com
               </a>
             </p>
           </div>
-          {/* Social Icons */}
           <div className="social">
             <h3>Connect with Us</h3>
             <ul className="social-icons">
@@ -46,7 +44,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://l.instagram.com/?u=https%3A%2F%2Fwww.facebook.com%2FfirstbaptistchurchTadi%3Fmibextid%3DLQQJ4d&e=AT38M9qTf2eCf1sOCJiXchQoZqD3Vl7SXOrUYYDJ-eScrJ7Z0d6ouBDJgh3eexzxJEmQDmPJLNF2xuuAu8PXkQT-bDdkjtx45oM0Ag"
+                  href="https://www.facebook.com/firstbaptistchurchTadi"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -57,7 +55,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* Legal */}
       <div className="legal">
         <div className="container">
           <p>&copy; 2024 First Baptist Church Takoradi. All rights reserved.</p>

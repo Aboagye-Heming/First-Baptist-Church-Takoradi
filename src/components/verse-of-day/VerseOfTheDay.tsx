@@ -49,7 +49,7 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
             repellendus, nisi amet commodi reprehenderit.
           </p>
         </div>
-        <h2>Verse of the Day</h2>
+        <h2 className="verse">Verse of the Day</h2>
         <p className="verse-text">{verses[currentVerseIndex].text}</p>
         <p className="verse-reference">{verses[currentVerseIndex].verse}</p>
       </div>

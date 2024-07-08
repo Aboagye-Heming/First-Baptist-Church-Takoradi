@@ -13,8 +13,8 @@ html {
 body {
   font-family: poppins;
 }
-.container {
-  padding: 10px 90px;
+.main-container {
+  max-width: 1200px;
 }
 ul,
 ul.nav {
@@ -61,6 +61,9 @@ header img {
   header {
     padding: 2px 5px;
   }
+  .main-container {
+    padding: 0px 4rem;
+  }
 }
 @media (max-width: 700px) {
   header {
@@ -74,6 +77,9 @@ header img {
   }
   .about-right p {
     display: none;
+  }
+  .main-container {
+    padding: 0px 2rem;
   }
 }
 
@@ -162,98 +168,4 @@ ul.about-content {
   color: #fff;
   text-align: center;
 }
-/*service area*/
 
-ul.services-content {
-  width: 100%;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.services-content li {
-  padding: 0 30px;
-  flex-basis: 33%;
-  text-align: center;
-}
-.services-content img {
-  width: 100%;
-  margin-bottom: 20px;
-}
-.services-content li h4 {
-  font-size: 20px;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 3px;
-}
-.services-content li p {
-  margin: 0;
-}
-@media (max-width: 1000px) {
-  .services-content li {
-    flex-basis: 100%;
-    margin-bottom: 65px;
-  }
-  .services-content li:last-child {
-    margin-bottom: 0;
-  }
-  .services-content li p {
-    padding: 0;
-  }
-}
-/*contact area*/
-
-ul.contact-content {
-  width: 100%;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.contact-content li {
-  padding: 0 30px;
-  flex-basis: 33%;
-  text-align: center;
-}
-.contact-content li i {
-  font-size: 50px;
-  color: #211560;
-  margin-bottom: 25px;
-}
-.contact-content li p {
-  margin: 0;
-}
-@media (max-width: 1000px) {
-  .contact-content li {
-    flex-basis: 100%;
-    margin-bottom: 65px;
-  }
-  .contact-content li:last-child {
-    margin-bottom: 0;
-  }
-  .contact-content li p {
-    padding: 0;
-  }
-}
-/*footer*/
-
-footer {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  padding: 60px 0;
-}

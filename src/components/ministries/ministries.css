@@ -1,8 +1,10 @@
 .services-area {
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem 12rem;
   margin-top: 20px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .services-content {
@@ -12,11 +14,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1px;
-}
-
-.ministry-item {
-  width: calc(33.33% - 20px);
+  gap: 60px;
 }
 
 .ministry-card {
@@ -25,8 +23,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  margin-bottom: 4rem;
-  max-width: 24rem;
+  margin-bottom: 2rem;
+  max-width: 300px;
+  flex: 1 1 calc(33.33% - 20px);
 }
 
 .ministry-card:hover {
@@ -34,33 +33,31 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.ministry-image {
+.ministry-card img {
   width: 100%;
   height: auto;
   border-radius: 10px 10px 0 0;
 }
 
 .ministry-info {
-  padding: 0 10px 20px 10px;
+  padding: 1rem;
 }
+
 .ministry-info h4 {
-  color: red;
+  color: #211560;
+  margin-bottom: 0.5rem;
 }
-.services-content li h4 {
+
+.ministry-info p {
+  color: #666;
   margin-bottom: 1rem;
 }
 
-.ministry-title {
-  margin-top: 0;
-  margin-bottom: 10px;
+.view-more {
+  display: flex;
+  justify-content: center;
 }
 
-.ministry-description {
-  color: #666;
-}
-.view-more {
-  text-align: left;
-}
 .view-more a {
   text-decoration: none;
   color: #211560;
@@ -77,8 +74,26 @@
   background-color: #211560;
   color: #fff;
 }
+
 @media screen and (max-width: 960px) {
-  .services-content li {
-    margin-bottom: 0rem;
+  .services-area {
+    padding: 2rem 1rem;
+  }
+  .ministry-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+  .services-content {
+
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ministry-card {
+    flex: 1 1 100%;
+  }
+  .services-content {
+
+    gap: 20px;
   }
 }
