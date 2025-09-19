@@ -10,8 +10,9 @@ interface NavItemProps {
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const navbarContainerRef = useRef<HTMLDivElement>(null); // Provide type for useRef
+  const navbarContainerRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,37 +22,54 @@ function Navbar() {
     setIsMenuOpen(false);
   };
 
-  const handleClickOutside = (event: { target: unknown }) => {
+  const handleClickOutside = (event: MouseEvent) => {
     if (
       isMenuOpen &&
       navbarContainerRef.current &&
-      !navbarContainerRef.current.contains(event.target as Node) // Type assertion
+      !navbarContainerRef.current.contains(event.target as Node)
     ) {
       closeMenu();
     }
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
     window.addEventListener("click", handleClickOutside);
+
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("click", handleClickOutside);
     };
   }, [isMenuOpen]);
 
   return (
     <div>
-      <nav className="navbar">
+      <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-container" ref={navbarContainerRef}>
           <Link to="/" className="nav-logo" onClick={closeMenu}>
-            FBCT
+            <span className="logo-icon">⛪</span>
+            <span className="logo-text">First Baptist Church</span>
+            <span className="logo-abbr">FBCT</span>
           </Link>
           <div
             className={`menu-icon ${isMenuOpen ? "active" : ""}`}
             onClick={toggleMenu}
           >
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
+            <span className="menu-text">{isMenuOpen ? "Close" : "Menu"}</span>
+            <div className="hamburger">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
           </div>
           <ul
             className={`nav-menu ${isMenuOpen ? "active" : ""}`}
@@ -63,16 +81,21 @@ function Navbar() {
               text="About Us"
               isActive={location.pathname === "/about-us"}
             />
-            {/* <NavItem
-              to="/activities"
-              text="Activities"
-              isActive={location.pathname === "/activities"}
-            /> */}
-            {/* <NavItem
-              to="/media-center"
-              text="Media Center"
-              isActive={location.pathname === "/media-center"}
-            /> */}
+            <NavItem
+              to="/ministries"
+              text="Ministries"
+              isActive={location.pathname === "/ministries"}
+            />
+            <NavItem
+              to="/sermons"
+              text="Sermons"
+              isActive={location.pathname === "/sermons"}
+            />
+            <NavItem
+              to="/events"
+              text="Events"
+              isActive={location.pathname === "/events"}
+            />
             <NavItem
               to="/contact-us"
               text="Contact"
@@ -86,12 +109,11 @@ function Navbar() {
 }
 
 function NavItem({ to, text, isActive }: NavItemProps) {
-  // Add props interface
-
   return (
     <li className="nav-item">
       <Link to={to} className={`nav-links ${isActive ? "active" : ""}`}>
-        {text}
+        <span className="link-text">{text}</span>
+        <span className="link-underline"></span>
       </Link>
     </li>
   );

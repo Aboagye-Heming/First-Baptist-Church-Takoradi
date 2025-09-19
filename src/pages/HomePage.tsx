@@ -12,14 +12,12 @@ function ChurchWebsite() {
       <Hero />
       <AboutUs />
 
-      {/* Verse of the Day + Events */}
       <section className="flex flex-col md:flex-row md:justify-between md:gap-10 mb-8 max-w-screen-xl mx-auto px-4">
         <VerseOfTheDay className="flex-1" />
         <UpcomingEvents className="flex-1" />
       </section>
 
       <Ministries />
-      {/* <ContactInfo /> */}
     </main>
   );
 }
