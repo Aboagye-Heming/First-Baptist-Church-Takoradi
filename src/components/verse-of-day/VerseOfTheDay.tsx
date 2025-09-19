@@ -31,7 +31,7 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
       setCurrentVerseIndex((prevIndex) =>
         prevIndex === verses.length - 1 ? 0 : prevIndex + 1
       );
-    }, 86400000); // Change verse every 24 hours (86400000 milliseconds)
+    }, 86400000); // rotates every 24 hours
 
     return () => clearInterval(interval);
   }, []);
@@ -39,19 +39,19 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
   return (
     <section className={`msg-area ${className}`}>
       <div className="msg-content">
+        <h2 className="verse-title">Verse of the Day</h2>
+        <p key={verses[currentVerseIndex].id} className="verse-text fade-in">
+          {verses[currentVerseIndex].text}
+        </p>
+        <p className="verse-reference">{verses[currentVerseIndex].verse}</p>
+
         <div className="additional-content">
-          {/* Place your additional content here */}
-          <h2>Year Theme</h2>
+          <h3>Year Theme</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At adipisci
-            sed laudantium, temporibus dolorum impedit voluptatem nesciunt error
-            alias, inventore nobis mollitia expedita doloremque vero
-            repellendus, nisi amet commodi reprehenderit.
+            “Building stronger faith, serving with love, and shining God’s light
+            in our community.”
           </p>
         </div>
-        <h2 className="verse">Verse of the Day</h2>
-        <p className="verse-text">{verses[currentVerseIndex].text}</p>
-        <p className="verse-reference">{verses[currentVerseIndex].verse}</p>
       </div>
     </section>
   );
