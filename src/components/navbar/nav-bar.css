@@ -62,6 +62,25 @@
   font-size: 1.8rem;
   margin-right: 8px;
 }
+.logo-image {
+  max-width: 180px; /* Prevents it from getting too large on big screens */
+  height: auto; /* Maintains aspect ratio */
+  display: block;
+}
+
+/* Tablet screens */
+@media screen and (max-width: 960px) {
+  .logo-image {
+    max-width: 140px;
+  }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+  .logo-image {
+    max-width: 100px;
+  }
+}
 
 .logo-text {
   display: inline;
@@ -69,7 +88,7 @@
 
 .logo-abbr {
   display: none;
-  font-size: 1.5rem;
+  width: 100px !important;
 }
 
 .menu-icon {
@@ -283,6 +302,9 @@
   .link-underline {
     display: none;
   }
+  .logo-image {
+    max-width: 180px;
+  }
 
   .nav-links:hover {
     background-color: var(--light-bg);
@@ -297,6 +319,9 @@
 
   .nav-logo {
     font-size: 1.2rem;
+  }
+  .logo-image {
+    max-width: 180px;
   }
 
   .logo-icon {

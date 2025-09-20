@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import image from "../../assets/images/ch-logo.png";
 import "./nav-bar.css";
 
 interface NavItemProps {
@@ -56,15 +57,27 @@ function Navbar() {
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-container" ref={navbarContainerRef}>
           <Link to="/" className="nav-logo" onClick={closeMenu}>
-            <span className="logo-icon">⛪</span>
-            <span className="logo-text">First Baptist Church</span>
-            <span className="logo-abbr">FBCT</span>
+            {/* <span className="logo-icon">⛪</span> */}
+            <span className="logo-text">
+              <img
+                src={image}
+                alt="First Baptist Church Takoradi Logo"
+                className="logo-image"
+              />
+            </span>
+            <span className="logo-abbr">
+              {" "}
+              <img
+                src={image}
+                alt="First Baptist Church Takoradi Logo"
+                className="logo-image"
+              />
+            </span>
           </Link>
           <div
             className={`menu-icon ${isMenuOpen ? "active" : ""}`}
             onClick={toggleMenu}
           >
-            <span className="menu-text">{isMenuOpen ? "Close" : "Menu"}</span>
             <div className="hamburger">
               <div className="bar"></div>
               <div className="bar"></div>
@@ -81,7 +94,7 @@ function Navbar() {
               text="About Us"
               isActive={location.pathname === "/about-us"}
             />
-            <NavItem
+            {/* <NavItem
               to="/ministries"
               text="Ministries"
               isActive={location.pathname === "/ministries"}
@@ -95,7 +108,7 @@ function Navbar() {
               to="/events"
               text="Events"
               isActive={location.pathname === "/events"}
-            />
+            /> */}
             <NavItem
               to="/contact-us"
               text="Contact"

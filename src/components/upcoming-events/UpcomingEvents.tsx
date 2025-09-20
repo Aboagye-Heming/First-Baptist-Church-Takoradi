@@ -5,7 +5,8 @@ const events = [
   {
     name: "Sunday Service",
     day: "Sunday",
-    description: "Join us for our Sunday service (Joint Service) with inspiring sermons and worship music.",
+    description:
+      "Join us for our Sunday service (Joint Service) with inspiring sermons and worship music.",
   },
   {
     name: "Youth Fellowship",
@@ -20,7 +21,8 @@ const events = [
   {
     name: "Bible Study",
     day: "Wednesday",
-    description: "Join us for Bible study sessions where we delve deep into the scriptures.",
+    description:
+      "Join us for Bible study sessions where we delve deep into the scriptures.",
   },
   {
     name: "Singing Rehearsal",
@@ -35,7 +37,8 @@ const events = [
   {
     name: "Singing Rehearsal",
     day: "Saturday",
-    description: "Join our choir for singing rehearsals and prepare for Sunday worship.",
+    description:
+      "Join our choir for singing rehearsals and prepare for Sunday worship.",
   },
 ];
 
@@ -46,12 +49,18 @@ interface UpcomingEventsProps {
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ className }) => {
   return (
     <div className={`upcoming-events ${className}`}>
-      <h2>Upcoming Programs</h2>
+      <h2 className="events-title">Upcoming Programs</h2>
       <div className="events-list">
         {events.map((event, index) => (
-          <div key={index} className="event">
+          <div
+            key={index}
+            className="event-card fade-up"
+            style={{ animationDelay: `${index * 0.15}s` }}
+          >
             <h3>{event.name}</h3>
-            <p><strong>Day:</strong> {event.day}</p>
+            <p className="event-day">
+              <strong>{event.day}</strong>
+            </p>
             <p>{event.description}</p>
           </div>
         ))}

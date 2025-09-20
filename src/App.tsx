@@ -7,11 +7,15 @@ import MediaCenter from "./pages/MediaCenter";
 import MinistryDetails from "./pages/ministry-details/MinistryDetails";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import AnimatedBackground from "./components/animatedBackground/AnimatedBackground";
+
 import "../src/assets/css/index.css";
 
 function App() {
   return (
     <div className="App">
+      <AnimatedBackground />
+
       <Router>
         <Navbar />
         <div className="content">
