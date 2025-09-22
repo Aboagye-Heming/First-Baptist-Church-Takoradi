@@ -1,4 +1,3 @@
-import React from "react";
 import "./upcoming-events.css";
 
 const events = [

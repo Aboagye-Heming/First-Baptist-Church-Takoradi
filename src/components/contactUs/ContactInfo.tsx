@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./contact-page.css";
 import facebookLogo from "../../assets/icons/facebook.svg";
 import instagramLogo from "../../assets/icons/insta.svg";
@@ -12,14 +12,16 @@ const ContactInfo = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState<null | "success">(null);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -112,7 +114,7 @@ const ContactInfo = () => {
               <textarea
                 id="message"
                 name="message"
-                rows="5"
+                rows={5}
                 placeholder="Write your message..."
                 value={formData.message}
                 onChange={handleChange}
