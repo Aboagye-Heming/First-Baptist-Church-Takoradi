@@ -94,21 +94,26 @@ function Navbar() {
               text="About Us"
               isActive={location.pathname === "/about-us"}
             />
-            {/* <NavItem
-              to="/ministries"
-              text="Ministries"
-              isActive={location.pathname === "/ministries"}
+            <NavItem
+              to="/activities"
+              text="Activities"
+              isActive={location.pathname === "/activities"}
             />
             <NavItem
-              to="/sermons"
-              text="Sermons"
-              isActive={location.pathname === "/sermons"}
+              to="/media-center"
+              text="Media"
+              isActive={location.pathname === "/media-center"}
             />
-            <NavItem
-              to="/events"
-              text="Events"
-              isActive={location.pathname === "/events"}
-            /> */}
+             <NavItem
+              to="/plan-a-visit"
+              text="Plan a Visit"
+              isActive={location.pathname === "/plan-a-visit"}
+            />
+             <NavItem
+              to="/giving"
+              text="Giving"
+              isActive={location.pathname === "/giving"}
+            />
             <NavItem
               to="/contact-us"
               text="Contact"

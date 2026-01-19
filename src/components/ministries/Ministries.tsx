@@ -1,138 +1,123 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { motion } from "framer-motion";
 import choir from "../../assets/images/choir.png";
 import global from "../../assets/images/global.png";
 import media from "../../assets/images/media.png";
 import children from "../../assets/images/image1.jpg";
 import usher from "../../assets/images/usher.png";
-import "./ministries.css";
 
-function Ministries() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+const Ministries = () => {
+
 
   const ministries = [
     {
       id: 1,
       title: "Global Kingdom Voices",
       image: global,
-      description:
-        "Our international worship team that leads the congregation in praise through diverse cultural expressions of faith.",
+      description: "Leading in praise through diverse cultural expressions.",
       icon: "🎵",
     },
     {
       id: 2,
       title: "Vibrant Choir",
       image: choir,
-      description:
-        "A dynamic choir that enhances our worship services with powerful harmonies and inspirational music.",
+      description: "Enhancing worship with powerful harmonies.",
       icon: "🎼",
     },
     {
       id: 3,
       title: "Media Ministry",
       image: media,
-      description:
-        "Technical team dedicated to spreading God's word through audio, video, and online platforms.",
+      description: "Spreading the word through technology.",
       icon: "📹",
     },
     {
       id: 4,
       title: "Children's Ministry",
       image: children,
-      description:
-        "Nurturing young hearts in faith through engaging activities, Bible stories, and age-appropriate worship.",
-      icon: "👧👦",
+      description: "Nurturing young hearts in faith.",
+      icon: "👧",
     },
     {
       id: 5,
       title: "Ushers & Greeters",
       image: usher,
-      description:
-        "The welcoming face of our church, creating a warm and organized environment for all attendees.",
+      description: "Creating a welcoming environment for all.",
       icon: "🤝",
     },
   ];
 
   return (
-    <div>
-      <section className="ministries-area" id="ministries">
-        <div className="ministries-header">
-          <h3 className="section-title">Church Ministries</h3>
-          <p className="section-subtitle">
-            Serving God through our unique gifts and talents
-          </p>
+    <section className="py-20 bg-gray-50" id="ministries">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-serif"
+          >
+            Church Ministries
+          </motion.h3>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+          >
+            Serving God through our unique gifts and talents. Find your place to serve.
+          </motion.p>
         </div>
 
-        <div className="ministries-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ministries.map((ministry, index) => (
-            <div
+            <motion.div
               key={ministry.id}
-              className={`ministry-card ${
-                hoveredCard === ministry.id ? "hovered" : ""
-              }`}
-              onMouseEnter={() => setHoveredCard(ministry.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
             >
-              <div className="card-image-container">
+              <div className="relative h-56 overflow-hidden">
                 <img
-                  alt={ministry.title}
                   src={ministry.image}
-                  className="card-image"
+                  alt={ministry.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="image-overlay"></div>
-                <div className="ministry-icon">{ministry.icon}</div>
-              </div>
-
-              <div className="card-content">
-                <h4>{ministry.title}</h4>
-                <p>{ministry.description}</p>
-
-                <div className="card-actions">
-                  <button className="view-more-btn">
-                    <Link to={`/ministry/${ministry.id}`}>
-                      Learn More
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5 12H19M19 12L12 5M19 12L12 19"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
-                  </button>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                
+                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-3 rounded-full text-2xl">
+                  {ministry.icon}
+                </div>
+                
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="text-xl font-bold mb-1">{ministry.title}</h4>
                 </div>
               </div>
-            </div>
+
+              <div className="p-6">
+                <p className="text-gray-600 mb-6 line-clamp-2">
+                  {ministry.description}
+                </p>
+
+                <Link 
+                  to={`/ministry/${ministry.id}`}
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors group-hover:translate-x-1 duration-300"
+                >
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* <div className="ministries-cta-modern">
-          <div className="cta-content">
-            <div className="cta-icon">🙌</div>
-            <div className="cta-text">
-              <h3>Discover Your Gift & Serve the Church</h3>
-              <p>
-                Join a ministry that aligns with your talents and passion.
-                Together, we can make a greater impact in our community.
-              </p>
-            </div>
-          </div>
-          <button className="cta-button-modern">
-            <Link to="/get-involved">Get Started</Link>
-          </button>
-        </div> */}
-      </section>
-    </div>
+      </div>
+    </section>
   );
-}
+};
 
 export default Ministries;

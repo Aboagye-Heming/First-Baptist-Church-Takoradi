@@ -1,44 +1,34 @@
-import "./upcoming-events.css";
+import { motion } from "framer-motion";
 
 const events = [
   {
     name: "Sunday Service",
     day: "Sunday",
-    description:
-      "Join us for our Sunday service (Joint Service) with inspiring sermons and worship music.",
-  },
-  {
-    name: "Youth Fellowship",
-    day: "Monday",
-    description: "A time for the youth to gather, share, and grow in faith.",
-  },
-  {
-    name: "Men's Meeting",
-    day: "Tuesday",
-    description: "Connect and grow with other men in our community.",
+    time: "9:00 AM",
+    description: "Joint Service with inspiring sermons and worship.",
+    color: "bg-blue-50 border-blue-200"
   },
   {
     name: "Bible Study",
     day: "Wednesday",
-    description:
-      "Join us for Bible study sessions where we delve deep into the scriptures.",
-  },
-  {
-    name: "Singing Rehearsal",
-    day: "Thursday",
-    description: "Come together in prayer and fellowship.",
+    time: "6:00 PM",
+    description: "Delve deep into the scriptures and discussion.",
+    color: "bg-amber-50 border-amber-200"
   },
   {
     name: "Prayer Hour",
     day: "Friday",
-    description: "A dedicated time for prayer and reflection.",
+    time: "6:30 PM",
+    description: "A dedicated time for intercession and reflection.",
+    color: "bg-purple-50 border-purple-200"
   },
   {
-    name: "Singing Rehearsal",
-    day: "Saturday",
-    description:
-      "Join our choir for singing rehearsals and prepare for Sunday worship.",
-  },
+    name: "Youth Fellowship",
+    day: "Monday",
+    time: "6:00 PM",
+    description: "Youth gathering to share and grow in faith.",
+    color: "bg-green-50 border-green-200"
+  }
 ];
 
 interface UpcomingEventsProps {
@@ -47,21 +37,35 @@ interface UpcomingEventsProps {
 
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ className }) => {
   return (
-    <div className={`upcoming-events ${className}`}>
-      <h2 className="events-title">Upcoming Programs</h2>
-      <div className="events-list">
+    <div className={`flex flex-col h-full ${className}`}>
+      <div className="bg-blue-900 text-white p-6 md:p-8">
+        <h2 className="text-2xl font-bold flex items-center gap-3">
+          <span className="text-3xl">📅</span> 
+          Weekly Programs
+        </h2>
+      </div>
+      
+      <div className="p-6 md:p-8 space-y-4 overflow-y-auto max-h-[600px] custom-scrollbar">
         {events.map((event, index) => (
-          <div
+          <motion.div
             key={index}
-            className="event-card fade-up"
-            style={{ animationDelay: `${index * 0.15}s` }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className={`p-5 rounded-xl border-l-4 ${event.color} hover:shadow-md transition-shadow`}
           >
-            <h3>{event.name}</h3>
-            <p className="event-day">
-              <strong>{event.day}</strong>
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="font-bold text-gray-900 text-lg">{event.name}</h3>
+              <span className="text-sm font-semibold bg-white px-2 py-1 rounded text-gray-600 shadow-sm">
+                {event.day}
+              </span>
+            </div>
+            <p className="text-sm font-medium text-gray-500 mb-2">{event.time}</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              {event.description}
             </p>
-            <p>{event.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

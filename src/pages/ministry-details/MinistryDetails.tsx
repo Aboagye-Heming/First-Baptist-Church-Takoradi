@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import choir from "../../assets/images/choir.png";
 import global from "../../assets/images/global.png";
 import media from "../../assets/images/media.png";
 import children from "../../assets/images/image1.jpg";
 import usher from "../../assets/images/usher.png";
-import "./ministry-details.css";
 
 const ministries: Record<
   string,
@@ -158,6 +158,16 @@ const ministries: Record<
   },
 };
 
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.6 } }
+};
+
+const slideUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 function MinistryDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -171,9 +181,12 @@ function MinistryDetails() {
 
   if (!ministry) {
     return (
-      <div className="ministry-not-found">
-        <h2>Ministry not found</h2>
-        <button onClick={() => navigate("/ministries")} className="back-button">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 pt-20">
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Ministry not found</h2>
+        <button 
+          onClick={() => navigate("/ministries")} 
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+        >
           Return to Ministries
         </button>
       </div>
@@ -186,204 +199,160 @@ function MinistryDetails() {
   };
 
   return (
-    <div className={`ministry-details-container ${isVisible ? "visible" : ""}`}>
-      <div className="ministry-hero">
-        <div className="hero-content">
-          <button onClick={handleBackClick} className="back-button">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19 12H5M5 12L12 19M5 12L12 5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+    <motion.div 
+      initial="hidden"
+      animate={isVisible ? "visible" : "hidden"}
+      variants={fadeIn}
+      className="min-h-screen bg-white pt-20"
+    >
+      {/* Hero Section */}
+      <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+        <img
+          src={ministry.image}
+          alt={ministry.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+        
+        <div className="absolute top-8 left-4 md:left-8 z-20">
+          <button 
+            onClick={handleBackClick} 
+            className="flex items-center gap-2 text-white/90 hover:text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-full transition-all backdrop-blur-sm"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5"/>
             </svg>
-            Back to Ministries
+            Back
           </button>
-          <h1>{ministry.name}</h1>
-          <p className="ministry-tagline">{ministry.description}</p>
-        </div>
-        <div className="hero-image">
-          <img
-            src={ministry.image}
-            alt={ministry.name}
-            className="ministry-image"
-          />
-          <div className="image-overlay"></div>
-        </div>
-      </div>
-
-      <div className="ministry-content">
-        <div className="content-main">
-          <section className="ministry-description">
-            <h2>About This Ministry</h2>
-            <p>{ministry.fullDescription}</p>
-          </section>
-
-          <section className="ministry-responsibilities">
-            <h2>Responsibilities</h2>
-            <ul>
-              {ministry.responsibilities.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="ministry-benefits">
-            <h2>Benefits of Joining</h2>
-            <ul>
-              {ministry.benefits.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </section>
         </div>
 
-        <div className="content-sidebar">
-          <div className="info-card">
-            <h3>Meeting Information</h3>
-            <div className="info-item">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div>
-                <p className="info-label">When</p>
-                <p>
-                  {ministry.meetingDay} at {ministry.meetingTime}
-                </p>
-              </div>
-            </div>
-            <div className="info-item">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.6569 16.6569C16.7202 17.5935 14.7616 19.5521 13.4138 20.8999C12.6327 21.681 11.3677 21.6814 10.5866 20.9003C9.26234 19.576 7.34159 17.6553 6.34315 16.6569C3.21895 13.5327 3.21895 8.46734 6.34315 5.34315C9.46734 2.21895 14.5327 2.21895 17.6569 5.34315C20.781 8.46734 20.781 13.5327 17.6569 16.6569Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div>
-                <p className="info-label">Where</p>
-                <p>{ministry.location}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="info-card">
-            <h3>Leadership</h3>
-            <div className="leader-info">
-              <div className="leader-name">{ministry.leader}</div>
-              <div className="leader-title">{ministry.leaderTitle}</div>
-            </div>
-          </div>
-
-          <div className="info-card">
-            <h3>Contact Information</h3>
-            <div className="info-item">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 4H19C20.1046 4 21 4.89543 21 6V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6C3 4.89543 3.89543 4 5 4Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M21 6L12 13L3 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div>
-                <p className="info-label">Email</p>
-                <a href={`mailto:${ministry.email}`}>{ministry.email}</a>
-              </div>
-            </div>
-            <div className="info-item">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22 16.92V19.92C22 20.52 21.53 20.99 20.96 21.08C20.53 21.15 20.11 21.2 19.7 21.24C17.27 21.47 14.82 21.34 12.44 20.86C9.97 20.36 7.59 19.43 5.38 18.11C3.22 16.82 1.39 15.15 0 13.18C0.31 12.76 0.64 12.35 0.99 11.97C1.39 11.54 1.94 11.25 2.54 11.25H5.54C6.14 11.25 6.64 11.53 6.95 11.95C7.78 13.05 8.83 13.97 10.02 14.65C10.3 14.81 10.51 15.08 10.59 15.4C10.67 15.72 10.62 16.06 10.44 16.34L9.44 17.87C10.77 18.63 12.19 19.2 13.66 19.57C14.13 19.69 14.65 19.45 14.86 19.01L15.89 16.84C16 16.56 16.25 16.35 16.55 16.28C16.85 16.21 17.17 16.29 17.4 16.49C18.41 17.35 19.57 18.03 20.83 18.5C21.26 18.67 21.52 19.11 21.46 19.58L21.43 19.86L21.4 20.05"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div>
-                <p className="info-label">Phone</p>
-                <a href={`tel:${ministry.contact}`}>{ministry.contact}</a>
-              </div>
-            </div>
-          </div>
-
-          {/* <button className="join-ministry-btn">
-            Join This Ministry
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+          <div className="max-w-screen-xl mx-auto">
+            <motion.h1 
+              variants={slideUp}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-4"
             >
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button> */}
+              {ministry.name}
+            </motion.h1>
+            <motion.p 
+              variants={slideUp}
+              className="text-xl md:text-2xl text-blue-100 max-w-2xl"
+            >
+              {ministry.description}
+            </motion.p>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="max-w-screen-xl mx-auto px-4 py-12 md:py-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          
+          {/* Main Content */}
+          <div className="lg:w-2/3 space-y-12">
+            <motion.section variants={slideUp}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">About This Ministry</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">{ministry.fullDescription}</p>
+            </motion.section>
+
+            <motion.section variants={slideUp}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Responsibilities</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {ministry.responsibilities.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg">
+                    <span className="text-blue-500 mt-1">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+
+            <motion.section variants={slideUp}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-2">Benefits of Joining</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {ministry.benefits.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 bg-blue-50 p-4 rounded-lg">
+                    <span className="text-blue-600 mt-1">â˜…</span>
+                    <span className="text-gray-800">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+          </div>
+
+          {/* Sidebar */}
+          <motion.div 
+            className="lg:w-1/3 space-y-8"
+            variants={slideUp}
+          >
+            {/* Meeting Info Card */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                Meeting Details
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="bg-gray-50 p-3 rounded-full h-fit text-gray-600">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">When</h4>
+                    <p className="text-gray-600">{ministry.meetingDay} at {ministry.meetingTime}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="bg-gray-50 p-3 rounded-full h-fit text-gray-600">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Where</h4>
+                    <p className="text-gray-600">{ministry.location}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Leadership Card */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                Leadership
+              </h3>
+              <div>
+                 <p className="text-lg font-bold text-gray-900">{ministry.leader}</p>
+                 <p className="text-blue-600 font-medium">{ministry.leaderTitle}</p>
+              </div>
+            </div>
+
+            {/* Contact Card */}
+             <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-6 rounded-2xl shadow-lg text-white">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                Contact
+              </h3>
+              <div className="space-y-4">
+                <a href={`mailto:${ministry.email}`} className="flex items-center gap-3 hover:text-blue-200 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span className="break-all">{ministry.email}</span>
+                </a>
+                <a href={`tel:${ministry.contact}`} className="flex items-center gap-3 hover:text-blue-200 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>{ministry.contact}</span>
+                </a>
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 

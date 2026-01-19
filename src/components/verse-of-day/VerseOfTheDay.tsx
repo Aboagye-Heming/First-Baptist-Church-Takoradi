@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Verse-of-day.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 const verses = [
   {
@@ -25,96 +25,78 @@ interface VerseOfTheDayProps {
 
 const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
   const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
-  const [isChanging, setIsChanging] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsChanging(true);
-      setTimeout(() => {
-        setCurrentVerseIndex((prevIndex) =>
-          prevIndex === verses.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsChanging(false);
-      }, 500);
-    }, 8000); // Change every 8 seconds for demo (originally 24 hours)
+      setCurrentVerseIndex((prev) => (prev + 1) % verses.length);
+    }, 10000); 
 
     return () => clearInterval(interval);
   }, []);
 
   const changeVerse = () => {
-    setIsChanging(true);
-    setTimeout(() => {
-      setCurrentVerseIndex((prevIndex) =>
-        prevIndex === verses.length - 1 ? 0 : prevIndex + 1
-      );
-      setIsChanging(false);
-    }, 500);
+    setCurrentVerseIndex((prev) => (prev + 1) % verses.length);
   };
 
   return (
-    <section className={`verse-of-day-container ${className}`}>
-      <div className="verse-card">
-        <div className="verse-header">
-          <h2 className="verse-title">
-            <span className="icon">📖</span>
-            Verse of the Day
-          </h2>
-          <button
-            className="refresh-btn"
-            onClick={changeVerse}
-            aria-label="Change verse"
+    <div className={`flex flex-col h-full bg-white ${className}`}>
+      <div className="bg-blue-600 p-6 text-white flex justify-between items-center">
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <span className="text-3xl">📖</span>
+          Verse of the Day
+        </h2>
+        <button
+          onClick={changeVerse}
+          className="p-2 hover:bg-blue-500 rounded-full transition-colors"
+          aria-label="Change verse"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="p-8 flex-1 flex flex-col justify-center relative min-h-[300px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentVerseIndex}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.65 6.35C16.2 4.9 14.21 4 12 4C7.58 4 4.01 7.58 4.01 12C4.01 16.42 7.58 20 12 20C15.73 20 18.84 17.45 19.73 14H17.65C16.83 16.33 14.61 18 12 18C8.69 18 6 15.31 6 12C6 8.69 8.69 6 12 6C13.66 6 15.14 6.69 16.22 7.78L13 11H20V4L17.65 6.35Z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
+            <p className="text-xl md:text-2xl text-gray-800 font-serif leading-relaxed italic mb-6">
+              "{verses[currentVerseIndex].text}"
+            </p>
+            <p className="text-blue-600 font-bold text-lg">
+              — {verses[currentVerseIndex].verse}
+            </p>
+          </motion.div>
+        </AnimatePresence>
 
-        <div className={`verse-content ${isChanging ? "fade-out" : "fade-in"}`}>
-          <p className="verse-text">"{verses[currentVerseIndex].text}"</p>
-          <p className="verse-reference">— {verses[currentVerseIndex].verse}</p>
-        </div>
-
-        <div className="theme-section">
-          <div className="theme-header">
-            <span className="theme-icon">✨</span>
-            <h3>2025 Church Theme</h3>
+        <div className="mt-8 pt-8 border-t border-gray-100">
+          <div className="flex items-center gap-2 mb-2 text-amber-500 font-bold">
+            <span>✨</span> 2025 Church Theme
           </div>
-          <p className="theme-text">
-            "Building stronger faith, serving with love, and shining God's light
-            in our community."
+          <p className="text-gray-600 italic">
+            "Building stronger faith, serving with love, and shining God's light in our community."
           </p>
         </div>
 
-        <div className="verse-indicators">
+        <div className="flex justify-center gap-2 mt-6">
           {verses.map((_, index) => (
             <button
               key={index}
-              className={`indicator ${
-                index === currentVerseIndex ? "active" : ""
+              onClick={() => setCurrentVerseIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentVerseIndex ? "bg-blue-600 w-6" : "bg-gray-300"
               }`}
-              onClick={() => {
-                setIsChanging(true);
-                setTimeout(() => {
-                  setCurrentVerseIndex(index);
-                  setIsChanging(false);
-                }, 500);
-              }}
-              aria-label={`Go to verse ${index + 1}`}
             />
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

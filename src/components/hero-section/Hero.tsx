@@ -1,25 +1,97 @@
-import "./hero.css";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import image1 from "../../assets/images/image1.jpg";
+import ch2 from "../../assets/images/ch2.png";
+import ch3 from "../../assets/images/ch3.png";
+import ch4 from "../../assets/images/ch4.JPG";
+import ch5 from "../../assets/images/ch5.JPG";
 
 const Hero = () => {
+  const images = [image1, ch2, ch3, ch4, ch5];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const text = "Welcome To First Baptist Church";
 
   return (
-    <section className="banner-area">
-      <div className="banner-img img1"></div>
-      <div className="banner-img img2"></div>
-      <div className="banner-img img3"></div>
-      <div className="banner-img img4"></div>
-      <div className="banner-img img5"></div>
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+      {/* Background Image Carousel */}
+      {images.map((imgSrc, index) => (
+        <motion.div
+          key={index}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${imgSrc})` }}
+          initial={{ opacity: 0 }}
+          animate={{ 
+            opacity: index === currentImageIndex ? 0.6 : 0,
+            scale: index === currentImageIndex ? 1.05 : 1
+          }}
+          transition={{ duration: 1.5, ease: "easeInOut" }} 
+        />
+      ))}
+      
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
-      <div className="banner-text snake-text">
-        <h3>
+      {/* Hero Content */}
+      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
+        <motion.div 
+          className="flex flex-wrap justify-center overflow-hidden mb-6"
+        >
           {text.split("").map((char, index) => (
-            <span key={index} style={{ animationDelay: `${index * 0.08}s` }}>
+            <motion.span
+              key={index}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-serif inline-block"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: index * 0.05,
+                type: "spring",
+                stiffness: 100,
+                damping: 20
+              }}
+            >
               {char === " " ? "\u00A0" : char}
-            </span>
+            </motion.span>
           ))}
-        </h3>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="space-y-6"
+        >
+          <p className="text-xl md:text-2xl text-gray-200">
+            Worship • Discipleship • Service
+          </p>
+          <div className="flex justify-center gap-4">
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
+              Join Us
+            </button>
+            <button className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white rounded-full font-semibold transition-all">
+              Watch Live
+            </button>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <svg className="w-8 h-8 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </motion.div>
     </section>
   );
 };
