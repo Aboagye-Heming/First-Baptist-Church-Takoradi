@@ -2,10 +2,17 @@ import { motion } from "framer-motion";
 
 const events = [
   {
-    name: "Sunday Service",
+    name: "English Service",
+    day: "Sunday",
+    time: "7:00 AM",
+    description: "Start your week with our uplifting English service.",
+    color: "bg-blue-50 border-blue-200",
+  },
+  {
+    name: "Akan Service",
     day: "Sunday",
     time: "9:00 AM",
-    description: "Joint Service with inspiring sermons and worship.",
+    description: "Join us for our vibrant Akan service.",
     color: "bg-blue-50 border-blue-200",
   },
   {

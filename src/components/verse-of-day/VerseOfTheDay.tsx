@@ -92,14 +92,32 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-8 pt-8 border-t border-gray-100">
-          <div className="flex items-center gap-2 mb-2 text-amber-500 font-bold">
-            <span>✨</span> 2025 Church Theme
-          </div>
-          <p className="text-gray-600 italic">
-            "Building stronger faith, serving with love, and shining God's light in our community."
+        <motion.div 
+          className="mt-8 pt-8 border-t border-gray-100"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <motion.div 
+            className="flex items-center justify-center gap-2 mb-4 text-amber-600 font-extrabold text-xl uppercase tracking-wider"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <span>✨</span> 2026 Church Theme <span>✨</span>
+          </motion.div>
+          <motion.p 
+            className="text-2xl md:text-3xl font-bold text-[#211560] leading-tight text-center"
+            animate={{ 
+              textShadow: ["0px 0px 0px rgba(33,21,96,0)", "0px 0px 15px rgba(33,21,96,0.2)", "0px 0px 0px rgba(33,21,96,0)"] 
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            "DISCOVERING OUR IDENTITY IN CHRIST."
+          </motion.p>
+          <p className="text-center text-lg text-gray-500 font-serif mt-2 font-medium">
+             (MATTHEW 16:13-17, 1 PETER 2:9)
           </p>
-        </div>
+        </motion.div>
 
         <div className="flex justify-center gap-2 mt-6">
           {verses.map((_, index) => (

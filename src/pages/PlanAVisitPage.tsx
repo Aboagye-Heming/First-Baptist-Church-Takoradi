@@ -56,7 +56,11 @@ const PlanAVisitPage = () => {
                  <span>8:00 AM</span>
                </li>
                <li className="flex justify-between font-semibold border-b border-blue-100 pb-2">
-                 <span>Main Service</span>
+                 <span>English Service</span>
+                 <span>7:00 AM</span>
+               </li>
+               <li className="flex justify-between font-semibold border-b border-blue-100 pb-2">
+                 <span>Akan Service</span>
                  <span>9:00 AM</span>
                </li>
                <li className="flex justify-between font-semibold border-b border-blue-100 pb-2">
