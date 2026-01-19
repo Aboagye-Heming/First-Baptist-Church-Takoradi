@@ -1,24 +1,55 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { fetchFromStrapi, getStrapiMedia } from "../../utils/strapi";
 import image1 from "../../assets/images/image1.jpg";
 import ch2 from "../../assets/images/ch2.png";
 import ch3 from "../../assets/images/ch3.png";
 import ch4 from "../../assets/images/ch4.JPG";
 import ch5 from "../../assets/images/ch5.JPG";
 
-const Hero = () => {
-  const images = [image1, ch2, ch3, ch4, ch5];
+const staticImages = [image1, ch2, ch3, ch4, ch5];
+const staticText = "Welcome To First Baptist Church";
+const staticSubtitle = "Worship • Discipleship • Service";
 
+const Hero = () => {
+  const [images, setImages] = useState(staticImages);
+  const [text, setText] = useState(staticText);
+  const [subtitle, setSubtitle] = useState(staticSubtitle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  useEffect(() => {
+    const loadData = async () => {
+      // Fetch 'hero' single type, populating all fields (esp. media)
+      const data = await fetchFromStrapi("/hero?populate=*");
+      
+      if (data && data.data) {
+        // Strapi v4/v5 response structure handling
+        // Adjust based on strict Single Type response: { data: { id, attributes: { ... } } }
+        const attrs = data.data.attributes || data.data; 
+
+        if (attrs.title) setText(attrs.title);
+        if (attrs.subtitle) setSubtitle(attrs.subtitle);
+        
+        // Handle Images
+        if (attrs.images && attrs.images.data) {
+           const strapiImages = attrs.images.data.map((img: any) => getStrapiMedia(img.attributes?.url || img.url)).filter(Boolean);
+           if (strapiImages.length > 0) {
+             setImages(strapiImages);
+           }
+        }
+      }
+    };
+
+    loadData();
+  }, []);
+
+  // Image Rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [images.length]);
-
-  const text = "Welcome To First Baptist Church";
+  }, [images]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
@@ -66,7 +97,7 @@ const Hero = () => {
           className="space-y-6"
         >
           <p className="text-xl md:text-2xl text-gray-200">
-            Worship • Discipleship • Service
+            {subtitle}
           </p>
           <div className="flex justify-center gap-4">
             {/* <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">

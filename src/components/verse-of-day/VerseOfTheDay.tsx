@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { fetchFromStrapi } from "../../utils/strapi";
 
-const verses = [
+const staticVerses = [
   {
     id: 1,
     text: "For the word of God is alive and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes of the heart.",
@@ -25,6 +26,22 @@ interface VerseOfTheDayProps {
 
 const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
   const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
+  const [verses, setVerses] = useState(staticVerses);
+
+  useEffect(() => {
+    const fetchVerse = async () => {
+      // Fetch 'verse-of-the-day' single type
+      const data = await fetchFromStrapi("/verse-of-the-day");
+      if (data && data.data) {
+        const attrs = data.data.attributes || data.data;
+        if (attrs.text && attrs.reference) {
+          // Override with dynamic verse
+          setVerses([{ id: 1, text: attrs.text, verse: attrs.reference }]);
+        }
+      }
+    };
+    fetchVerse();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,7 +49,7 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
     }, 10000); 
 
     return () => clearInterval(interval);
-  }, []);
+  }, [verses]);
 
   const changeVerse = () => {
     setCurrentVerseIndex((prev) => (prev + 1) % verses.length);

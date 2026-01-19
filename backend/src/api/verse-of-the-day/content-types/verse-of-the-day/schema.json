@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "verse_of_the_days",
+  "info": {
+    "singularName": "verse-of-the-day",
+    "pluralName": "verse-of-the-days",
+    "displayName": "VerseOfTheDay"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "reference": {
+      "type": "string"
+    }
+  }
+}
