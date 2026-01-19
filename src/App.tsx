@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import AnimatedBackground from "./components/animatedBackground/AnimatedBackground";
 import LoadingSpinner from "./components/common/LoadingSpinner";
+import ScrollToTop from "./components/common/ScrollToTop";
 import "../src/assets/css/index.css";
 
 // Lazy load pages
@@ -23,6 +24,7 @@ function App() {
       <AnimatedBackground />
 
       <Router>
+        <ScrollToTop />
         <Navbar />
         <div className="min-h-screen flex flex-col">
           <Suspense fallback={<LoadingSpinner />}>

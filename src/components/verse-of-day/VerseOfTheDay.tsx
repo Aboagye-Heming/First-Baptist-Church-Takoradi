@@ -40,14 +40,14 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
 
   return (
     <div className={`flex flex-col h-full bg-white ${className}`}>
-      <div className="bg-blue-600 p-6 text-white flex justify-between items-center">
+      <div className="bg-[#211560] p-6 text-white flex justify-between items-center">
         <h2 className="text-2xl font-bold flex items-center gap-2">
           <span className="text-3xl">📖</span>
           Verse of the Day
         </h2>
         <button
           onClick={changeVerse}
-          className="p-2 hover:bg-blue-500 rounded-full transition-colors"
+          className="p-2 hover:bg-[#322380] rounded-full transition-colors"
           aria-label="Change verse"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
             <p className="text-xl md:text-2xl text-gray-800 font-serif leading-relaxed italic mb-6">
               "{verses[currentVerseIndex].text}"
             </p>
-            <p className="text-blue-600 font-bold text-lg">
+            <p className="text-[#211560] font-bold text-lg">
               — {verses[currentVerseIndex].verse}
             </p>
           </motion.div>
@@ -90,7 +90,7 @@ const VerseOfTheDay: React.FC<VerseOfTheDayProps> = ({ className }) => {
               key={index}
               onClick={() => setCurrentVerseIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentVerseIndex ? "bg-blue-600 w-6" : "bg-gray-300"
+                index === currentVerseIndex ? "bg-[#211560] w-6" : "bg-gray-300"
               }`}
             />
           ))}

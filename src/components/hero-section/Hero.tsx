@@ -22,42 +22,39 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-      {/* Background Image Carousel */}
       {images.map((imgSrc, index) => (
         <motion.div
           key={index}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${imgSrc})` }}
           initial={{ opacity: 0 }}
-          animate={{ 
+          animate={{
             opacity: index === currentImageIndex ? 0.6 : 0,
-            scale: index === currentImageIndex ? 1.05 : 1
+            scale: index === currentImageIndex ? 1.05 : 1,
           }}
-          transition={{ duration: 1.5, ease: "easeInOut" }} 
+          transition={{ duration: 1.5, ease: "easeInOut" }}
         />
       ))}
-      
+
       <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* Hero Content */}
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-        <motion.div 
-          className="flex flex-wrap justify-center overflow-hidden mb-6"
-        >
-          {text.split("").map((char, index) => (
+      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
+        <motion.div className="flex flex-wrap justify-center overflow-hidden mb-6">
+          {text.split(" ").map((word, index) => (
             <motion.span
               key={index}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-serif inline-block"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-serif inline-block mr-4 mb-2"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
-                delay: index * 0.05,
+                delay: index * 0.1,
                 type: "spring",
                 stiffness: 100,
-                damping: 20
+                damping: 20,
               }}
             >
-              {char === " " ? "\u00A0" : char}
+              {word}
             </motion.span>
           ))}
         </motion.div>
@@ -72,24 +69,34 @@ const Hero = () => {
             Worship • Discipleship • Service
           </p>
           <div className="flex justify-center gap-4">
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
+            {/* <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
               Join Us
             </button>
             <button className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white rounded-full font-semibold transition-all">
               Watch Live
-            </button>
+            </button> */}
           </div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <svg className="w-8 h-8 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <svg
+          className="w-8 h-8 opacity-70"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </motion.div>
     </section>

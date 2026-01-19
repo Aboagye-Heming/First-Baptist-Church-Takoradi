@@ -115,7 +115,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-bottom-content">
             <p>
-              &copy; 2025 First Baptist Church, Takoradi. All rights reserved.
+              &copy; 2026 First Baptist Church, Takoradi. All rights reserved.
             </p>
             {/* <div className="legal-links">
               <p>Privacy Policy</p>

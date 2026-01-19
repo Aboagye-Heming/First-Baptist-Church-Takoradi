@@ -32,7 +32,7 @@ function ChurchWebsite() {
 
       {/* About Us Section */}
       <motion.section
-        className="py-16 bg-white"
+        className="py-10 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -42,7 +42,7 @@ function ChurchWebsite() {
       </motion.section>
 
       {/* Verse & Events Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 bg-gray-50">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             <motion.div
@@ -71,7 +71,7 @@ function ChurchWebsite() {
 
       {/* Ministries Section */}
       <motion.section
-        className="py-16 bg-white"
+        className="py-10 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}

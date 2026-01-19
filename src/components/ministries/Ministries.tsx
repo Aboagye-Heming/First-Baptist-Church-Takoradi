@@ -48,9 +48,9 @@ const Ministries = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="ministries">
+    <section className="py-10 bg-gray-50" id="ministries">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
