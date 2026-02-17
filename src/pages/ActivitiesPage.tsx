@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import activitiesBg from "../assets/images/activities-bg.png";
 
 const activities = [
   {
@@ -64,8 +65,12 @@ const ActivitiesPage = () => {
   return (
     <div className="pt-20 bg-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-blue-900 text-white py-20 text-center">
-        <div className="container mx-auto px-4">
+      <section 
+        className="relative bg-blue-900 text-white py-20 text-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${activitiesBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

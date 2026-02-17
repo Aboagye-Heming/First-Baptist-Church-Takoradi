@@ -115,7 +115,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-bottom-content">
             <p>
-              &copy; 2026 First Baptist Church, Takoradi. All rights reserved.
+              &copy; 2026 First Baptist Church, Takoradi. All rights reserved. | Built by <a href="https://github.com/Aboagye-Heming" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Aboagye-Heming</a>
             </p>
             {/* <div className="legal-links">
               <p>Privacy Policy</p>

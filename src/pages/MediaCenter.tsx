@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import mediaBg from "../assets/images/media-center-bg.png";
 
 const sermons = [
   {
@@ -46,8 +47,12 @@ const MediaCenter = () => {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-20 text-center">
-        <div className="container mx-auto px-4">
+      <section 
+        className="relative bg-gray-900 text-white py-20 text-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${mediaBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
